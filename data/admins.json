@@ -1,0 +1,40 @@
+{
+  "admins": [
+    {
+      "id": "admin-1",
+      "name": "John Smith",
+      "username": "mainuser",
+      "password": "$2a$10$8KqGXJ5eZxZYvYZ8KqGXJeZxZYvYZ8KqGXJeZxZYvYZ8KqGXJeZxZ",
+      "email": "john@cwresports.lk",
+      "role": "main",
+      "status": "active",
+      "requirePasswordChange": false,
+      "lastLogin": "2025-01-15T10:30:00Z",
+      "createdAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "admin-2",
+      "name": "Sarah Johnson",
+      "username": "scoreentry1",
+      "password": "$2a$10$7JpFWJ4dYwXVtVX7JpFWJ4dYwXVtVX7JpFWJ4dYwXVtVX7JpFWJ4d",
+      "email": "sarah@cwresports.lk",
+      "role": "normal",
+      "status": "active",
+      "requirePasswordChange": false,
+      "lastLogin": "2025-01-14T15:45:00Z",
+      "createdAt": "2025-01-05T00:00:00Z"
+    },
+    {
+      "id": "admin-3",
+      "name": "Mike Wilson",
+      "username": "scoreentry2",
+      "password": "$2a$10$7JpFWJ4dYwXVtVX7JpFWJ4dYwXVtVX7JpFWJ4dYwXVtVX7JpFWJ4d",
+      "email": "mike@cwresports.lk",
+      "role": "normal",
+      "status": "active",
+      "requirePasswordChange": false,
+      "lastLogin": "2025-01-13T09:20:00Z",
+      "createdAt": "2025-01-05T00:00:00Z"
+    }
+  ]
+}

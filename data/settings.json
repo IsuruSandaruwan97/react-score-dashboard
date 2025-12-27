@@ -1,0 +1,32 @@
+{
+  "resultsPublished": false,
+  "finalsEnabled": false,
+  "currentRound": "qualification",
+  "qualificationLocked": false,
+  "santaSleigh": {
+    "enabled": true,
+    "imageUrl": "/santa-sleigh.svg",
+    "width": 150,
+    "height": 100,
+    "minDelay": 10000,
+    "maxDelay": 30000,
+    "animationDuration": 12000
+  },
+  "rounds": [
+    {
+      "id": "qualification",
+      "name": "Qualification Round",
+      "status": "in-progress",
+      "startDate": "2025-01-10T00:00:00Z",
+      "endDate": "2025-01-20T23:59:59Z"
+    },
+    {
+      "id": "finals",
+      "name": "Finals Round",
+      "status": "upcoming",
+      "startDate": "2025-01-25T00:00:00Z",
+      "endDate": "2025-01-30T23:59:59Z"
+    }
+  ]
+}
+

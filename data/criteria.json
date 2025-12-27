@@ -1,0 +1,49 @@
+{
+  "criteria": [
+    {
+      "id": "crit-1",
+      "name": "Creativity",
+      "description": "Originality and innovative design elements",
+      "maxPoints": 20,
+      "weight": 1,
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "crit-2",
+      "name": "Theme",
+      "description": "Adherence to the competition theme",
+      "maxPoints": 20,
+      "weight": 1,
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "crit-3",
+      "name": "Technical",
+      "description": "Building complexity and technical skill",
+      "maxPoints": 20,
+      "weight": 1,
+      "order": 3,
+      "active": true
+    },
+    {
+      "id": "crit-4",
+      "name": "Detail",
+      "description": "Attention to detail and finishing touches",
+      "maxPoints": 20,
+      "weight": 1,
+      "order": 4,
+      "active": true
+    },
+    {
+      "id": "crit-5",
+      "name": "Overall",
+      "description": "Overall impression and impact",
+      "maxPoints": 20,
+      "weight": 1,
+      "order": 5,
+      "active": true
+    }
+  ]
+}

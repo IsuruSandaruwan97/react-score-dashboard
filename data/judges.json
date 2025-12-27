@@ -1,0 +1,52 @@
+{
+  "judges": [
+    {
+      "id": "J001",
+      "name": "MasterBuilder_X",
+      "role": "Head Judge",
+      "specialty": "Medieval Architecture",
+      "bio": "Professional Minecraft builder with 8+ years experience"
+    },
+    {
+      "id": "J002",
+      "name": "DesignGuru",
+      "role": "Technical Judge",
+      "specialty": "Redstone & Mechanics",
+      "bio": "Expert in technical builds and redstone contraptions"
+    },
+    {
+      "id": "J003",
+      "name": "ArtisticSoul",
+      "role": "Creative Judge",
+      "specialty": "Artistic Design",
+      "bio": "Specializes in creative and aesthetic builds"
+    }
+  ],
+  "scoringCriteria": [
+    {
+      "name": "Creativity",
+      "weight": 20,
+      "description": "Originality and innovative design choices"
+    },
+    {
+      "name": "Technique",
+      "weight": 20,
+      "description": "Building skill and technical execution"
+    },
+    {
+      "name": "Theme Adherence",
+      "weight": 20,
+      "description": "How well the build fits the competition theme"
+    },
+    {
+      "name": "Detail Work",
+      "weight": 20,
+      "description": "Attention to fine details and finishing"
+    },
+    {
+      "name": "Overall Impression",
+      "weight": 20,
+      "description": "General impact and quality of the build"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "results": [
+    {
+      "playerId": "P001",
+      "username": "BlockMaster99",
+      "rounds": [
+        {
+          "roundId": "R001",
+          "roundNumber": 1,
+          "scores": {
+            "creativity": 18,
+            "technique": 17,
+            "themeAdherence": 19,
+            "detailWork": 18,
+            "overall": 16
+          },
+          "totalScore": 88,
+          "feedback": "Excellent foundation work with great attention to detail"
+        }
+      ],
+      "totalScore": 88,
+      "rank": 1
+    },
+    {
+      "playerId": "P002",
+      "username": "CraftyBuilder",
+      "rounds": [
+        {
+          "roundId": "R001",
+          "roundNumber": 1,
+          "scores": {
+            "creativity": 17,
+            "technique": 16,
+            "themeAdherence": 18,
+            "detailWork": 17,
+            "overall": 15
+          },
+          "totalScore": 83,
+          "feedback": "Strong technical skills, could improve on creativity"
+        }
+      ],
+      "totalScore": 83,
+      "rank": 2
+    },
+    {
+      "playerId": "P003",
+      "username": "PixelArtist",
+      "rounds": [
+        {
+          "roundId": "R001",
+          "roundNumber": 1,
+          "scores": {
+            "creativity": 19,
+            "technique": 15,
+            "themeAdherence": 17,
+            "detailWork": 19,
+            "overall": 15
+          },
+          "totalScore": 85,
+          "feedback": "Amazing creative vision and detail work"
+        }
+      ],
+      "totalScore": 85,
+      "rank": 2
+    },
+    {
+      "playerId": "P004",
+      "username": "RedstoneKing",
+      "rounds": [
+        {
+          "roundId": "R001",
+          "roundNumber": 1,
+          "scores": {
+            "creativity": 16,
+            "technique": 18,
+            "themeAdherence": 16,
+            "detailWork": 16,
+            "overall": 14
+          },
+          "totalScore": 80,
+          "feedback": "Great technical approach, good foundation"
+        }
+      ],
+      "totalScore": 80,
+      "rank": 4
+    },
+    {
+      "playerId": "P005",
+      "username": "SkylineBuilder",
+      "rounds": [
+        {
+          "roundId": "R001",
+          "roundNumber": 1,
+          "scores": {
+            "creativity": 15,
+            "technique": 16,
+            "themeAdherence": 17,
+            "detailWork": 15,
+            "overall": 14
+          },
+          "totalScore": 77,
+          "feedback": "Solid build with good theme adherence"
+        }
+      ],
+      "totalScore": 77,
+      "rank": 5
+    }
+  ]
+}

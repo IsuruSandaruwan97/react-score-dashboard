@@ -1,0 +1,60 @@
+<svg width="150" height="100" viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Reindeer -->
+  <g transform="translate(0, 35)">
+    <ellipse cx="15" cy="25" rx="8" ry="6" fill="#8B4513" />
+    <circle cx="15" cy="20" r="5" fill="#8B4513" />
+    <line x1="12" y1="15" x2="10" y2="10" stroke="#654321" stroke-width="2" />
+    <line x1="18" y1="15" x2="20" y2="10" stroke="#654321" stroke-width="2" />
+    <circle cx="14" cy="19" r="1" fill="#000" />
+    <circle cx="12" cy="23" r="1.5" fill="#ff0000" />
+  </g>
+
+  <!-- Rope -->
+  <line x1="23" y1="60" x2="45" y2="65" stroke="#D2691E" stroke-width="2" stroke-dasharray="3,3" />
+
+  <!-- Sleigh -->
+  <path
+    d="M 45 70 Q 50 60 60 60 L 110 60 Q 115 60 115 65 L 115 75 Q 115 80 110 80 L 50 80 Q 45 80 45 75 Z"
+    fill="#c41e3a"
+    stroke="#8b0000"
+    stroke-width="2"
+  />
+  <path d="M 45 80 Q 40 85 45 90 L 110 90 Q 115 85 110 80" fill="#8b0000" />
+
+  <!-- Santa -->
+  <g transform="translate(70, 45)">
+    <!-- Body -->
+    <ellipse cx="0" cy="10" rx="12" ry="15" fill="#c41e3a" />
+    <!-- Head -->
+    <circle cx="0" cy="-5" r="8" fill="#ffd4a3" />
+    <!-- Hat -->
+    <path d="M -8 -5 L 0 -18 L 8 -5 Z" fill="#c41e3a" />
+    <circle cx="0" cy="-18" r="3" fill="#fff" />
+    <ellipse cx="0" cy="-5" rx="9" ry="2" fill="#fff" />
+    <!-- Beard -->
+    <ellipse cx="0" cy="0" rx="6" ry="5" fill="#fff" />
+    <!-- Eyes -->
+    <circle cx="-2" cy="-7" r="1" fill="#000" />
+    <circle cx="2" cy="-7" r="1" fill="#000" />
+    <!-- Arms -->
+    <line x1="-10" y1="5" x2="-15" y2="0" stroke="#c41e3a" stroke-width="3" stroke-linecap="round" />
+    <line x1="10" y1="5" x2="15" y2="10" stroke="#c41e3a" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Gift bags -->
+  <rect x="85" y="65" width="8" height="8" fill="#2d862d" stroke="#1a5c1a" stroke-width="1" />
+  <rect x="95" y="65" width="6" height="6" fill="#ff6b6b" stroke="#cc0000" stroke-width="1" />
+  <line x1="89" y1="65" x2="89" y2="73" stroke="#ffd700" stroke-width="1.5" />
+  <line x1="98" y1="65" x2="98" y2="71" stroke="#ffd700" stroke-width="1" />
+
+  <!-- Sparkles -->
+  <circle cx="130" cy="40" r="2" fill="#ffe066" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="140" cy="55" r="1.5" fill="#fff" opacity="0.9">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="125" cy="50" r="1" fill="#ffe066" opacity="0.7">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+</svg>

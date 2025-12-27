@@ -1,0 +1,61 @@
+{
+  "qualification": [
+    {
+      "playerId": "player-1",
+      "scores": {
+        "judge-1": {
+          "crit-1": 18,
+          "crit-2": 19,
+          "crit-3": 17,
+          "crit-4": 20,
+          "crit-5": 19
+        },
+        "judge-2": {
+          "crit-1": 17,
+          "crit-2": 18,
+          "crit-3": 19,
+          "crit-4": 18,
+          "crit-5": 20
+        },
+        "judge-3": {
+          "crit-1": 19,
+          "crit-2": 20,
+          "crit-3": 18,
+          "crit-4": 19,
+          "crit-5": 18
+        }
+      },
+      "updatedAt": "2025-01-14T10:00:00Z",
+      "updatedBy": "admin-2"
+    },
+    {
+      "playerId": "player-2",
+      "scores": {
+        "judge-1": {
+          "crit-1": 16,
+          "crit-2": 17,
+          "crit-3": 15,
+          "crit-4": 18,
+          "crit-5": 17
+        },
+        "judge-2": {
+          "crit-1": 15,
+          "crit-2": 16,
+          "crit-3": 17,
+          "crit-4": 16,
+          "crit-5": 18
+        },
+        "judge-3": {
+          "crit-1": 17,
+          "crit-2": 18,
+          "crit-3": 16,
+          "crit-4": 17,
+          "crit-5": 16
+        }
+      },
+      "updatedAt": "2025-01-14T10:05:00Z",
+      "updatedBy": "admin-2"
+    }
+  ],
+  "finals": []
+}

@@ -1,0 +1,40 @@
+{
+  "rounds": [
+    {
+      "id": "R001",
+      "roundNumber": 1,
+      "name": "Foundation Challenge",
+      "description": "Build the foundation of your medieval structure",
+      "startDate": "2025-01-15T14:00:00Z",
+      "endDate": "2025-01-15T17:00:00Z",
+      "duration": "3 hours",
+      "status": "completed",
+      "theme": "Castle Foundations",
+      "maxPoints": 100
+    },
+    {
+      "id": "R002",
+      "roundNumber": 2,
+      "name": "Main Structure",
+      "description": "Complete the main building with intricate details",
+      "startDate": "2025-01-22T14:00:00Z",
+      "endDate": "2025-01-22T17:00:00Z",
+      "duration": "3 hours",
+      "status": "ongoing",
+      "theme": "Medieval Architecture",
+      "maxPoints": 100
+    },
+    {
+      "id": "R003",
+      "roundNumber": 3,
+      "name": "Final Details",
+      "description": "Add finishing touches and landscaping",
+      "startDate": "2025-01-29T14:00:00Z",
+      "endDate": "2025-01-29T17:00:00Z",
+      "duration": "3 hours",
+      "status": "upcoming",
+      "theme": "Environmental Design",
+      "maxPoints": 100
+    }
+  ]
+}

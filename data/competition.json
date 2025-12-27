@@ -1,0 +1,19 @@
+{
+  "name": "CWR Minecraft Building Competition 2025",
+  "description": "Epic building competition featuring 300+ talented builders",
+  "status": "ongoing",
+  "startDate": "2025-01-15",
+  "endDate": "2025-01-30",
+  "totalPlayers": 312,
+  "totalRounds": 3,
+  "currentRound": 2,
+  "prizePool": "$5,000",
+  "theme": "Medieval Fantasy",
+  "rules": [
+    "Build within designated plot boundaries",
+    "No mods or texture packs allowed",
+    "3 hours per round",
+    "Original designs only",
+    "Family-friendly builds"
+  ]
+}

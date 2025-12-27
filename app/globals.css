@@ -1,0 +1,694 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Esports-themed dark mode with purple/cyan accents inspired by CWR */
+.dark {
+  --background: oklch(0.12 0.02 270);
+  --foreground: oklch(0.98 0.01 270);
+  --card: oklch(0.16 0.02 270);
+  --card-foreground: oklch(0.98 0.01 270);
+  --popover: oklch(0.14 0.02 270);
+  --popover-foreground: oklch(0.98 0.01 270);
+  --primary: oklch(0.68 0.24 285);
+  --primary-foreground: oklch(0.98 0.01 270);
+  --secondary: oklch(0.22 0.03 270);
+  --secondary-foreground: oklch(0.98 0.01 270);
+  --muted: oklch(0.22 0.02 270);
+  --muted-foreground: oklch(0.65 0.02 270);
+  --accent: oklch(0.65 0.22 200);
+  --accent-foreground: oklch(0.98 0.01 270);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 270);
+  --border: oklch(0.24 0.03 270);
+  --input: oklch(0.24 0.03 270);
+  --ring: oklch(0.68 0.24 285);
+  --chart-1: oklch(0.68 0.24 285);
+  --chart-2: oklch(0.65 0.22 200);
+  --chart-3: oklch(0.7 0.2 330);
+  --chart-4: oklch(0.6 0.18 150);
+  --chart-5: oklch(0.75 0.15 60);
+  --sidebar: oklch(0.14 0.02 270);
+  --sidebar-foreground: oklch(0.98 0.01 270);
+  --sidebar-primary: oklch(0.68 0.24 285);
+  --sidebar-primary-foreground: oklch(0.98 0.01 270);
+  --sidebar-accent: oklch(0.22 0.03 270);
+  --sidebar-accent-foreground: oklch(0.98 0.01 270);
+  --sidebar-border: oklch(0.24 0.03 270);
+  --sidebar-ring: oklch(0.68 0.24 285);
+}
+
+/* Adding Christmas theme colors and decorations */
+/* Updated Christmas theme to match provided screenshot: dark navy background, bright green primary, strategic red and gold accents */
+.xmas {
+  --background: oklch(0.08 0.02 240); /* Very dark navy, almost black */
+  --foreground: oklch(0.95 0.01 240); /* Light text */
+  --card: oklch(0.12 0.02 240); /* Slightly lighter dark navy for cards */
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.1 0.02 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.65 0.2 150); /* Bright green as primary (for main headings) */
+  --primary-foreground: oklch(0.98 0.01 240);
+  --secondary: oklch(0.18 0.03 240); /* Dark navy for secondary elements */
+  --secondary-foreground: oklch(0.95 0.01 240);
+  --muted: oklch(0.2 0.02 240);
+  --muted-foreground: oklch(0.6 0.02 240);
+  --accent: oklch(0.55 0.22 25); /* Red accent for badges and highlights */
+  --accent-foreground: oklch(0.98 0.01 240);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 240);
+  --border: oklch(0.22 0.03 240);
+  --input: oklch(0.22 0.03 240);
+  --ring: oklch(0.75 0.18 80); /* Gold ring/focus color */
+  --chart-1: oklch(0.55 0.22 25); /* Red for stats */
+  --chart-2: oklch(0.75 0.18 80); /* Gold for stats */
+  --chart-3: oklch(0.55 0.2 150); /* Green for stats */
+  --chart-4: oklch(0.55 0.15 330); /* Purple/pink for stats */
+  --chart-5: oklch(0.5 0.18 200); /* Cyan for stats */
+  --sidebar: oklch(0.1 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.01 240);
+  --sidebar-primary: oklch(0.65 0.2 150); /* Green for sidebar primary */
+  --sidebar-primary-foreground: oklch(0.98 0.01 240);
+  --sidebar-accent: oklch(0.18 0.03 240);
+  --sidebar-accent-foreground: oklch(0.95 0.01 240);
+  --sidebar-border: oklch(0.22 0.03 240);
+  --sidebar-ring: oklch(0.75 0.18 80);
+}
+
+@theme inline {
+  /* Custom font variables for esports aesthetic */
+  --font-sans: var(--font-body), "Inter", system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Orbitron", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Apply heading font to h1-h6 elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Adding scroll reveal and fade-in animations */
+@layer utilities {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-reveal.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Adding new animation keyframes for admin pages */
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-counter {
+    animation: counterPulse 1.5s ease-out;
+  }
+
+  @keyframes counterPulse {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(168, 85, 247, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.3);
+    }
+  }
+
+  .animate-expand {
+    animation: expand 0.3s ease-out;
+  }
+
+  @keyframes expand {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: scaleY(0.8);
+    }
+    to {
+      opacity: 1;
+      max-height: 1000px;
+      transform: scaleY(1);
+    }
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+  }
+
+  /* Adding advanced creative animations for homepage, players, and results pages */
+
+  /* Parallax effect utility */
+  .parallax-slow {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.3px));
+    transition: transform 0.1s ease-out;
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.6px));
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Floating animation for hero elements */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Shimmer effect for cards */
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1) 50%, transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Pulse glow for live indicators */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.3);
+      transform: scale(1.05);
+    }
+  }
+
+  /* Stagger children animation */
+  .stagger-children > * {
+    animation: staggerFadeIn 0.6s ease-out backwards;
+  }
+
+  .stagger-children > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .stagger-children > *:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .stagger-children > *:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .stagger-children > *:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .stagger-children > *:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+  .stagger-children > *:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+  .stagger-children > *:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+  .stagger-children > *:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes staggerFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Rotate on hover */
+  .hover-rotate {
+    transition: transform 0.4s ease;
+  }
+
+  .hover-rotate:hover {
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  /* Bounce on entrance */
+  .animate-bounce-in {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-50px);
+    }
+    50% {
+      transform: scale(1.1) translateY(0);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Slide from sides */
+  .animate-slide-right {
+    animation: slideRight 0.7s ease-out;
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.7s ease-out;
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Flip animation */
+  .animate-flip {
+    animation: flip 0.6s ease;
+  }
+
+  @keyframes flip {
+    0% {
+      transform: perspective(400px) rotateY(90deg);
+      opacity: 0;
+    }
+    100% {
+      transform: perspective(400px) rotateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Advanced hover lift with glow */
+  .hover-lift-glow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  }
+
+  .hover-lift-glow:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.4), 0 0 60px rgba(168, 85, 247, 0.2);
+    filter: brightness(1.1);
+  }
+
+  /* Neon border glow */
+  .neon-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(90deg, #a855f7, #06b6d4, #a855f7)
+      border-box;
+    animation: neonRotate 4s linear infinite;
+  }
+
+  @keyframes neonRotate {
+    0% {
+      background: linear-gradient(var(--card), var(--card)) padding-box,
+        linear-gradient(90deg, #a855f7, #06b6d4, #a855f7) border-box;
+    }
+    50% {
+      background: linear-gradient(var(--card), var(--card)) padding-box,
+        linear-gradient(90deg, #06b6d4, #a855f7, #06b6d4) border-box;
+    }
+    100% {
+      background: linear-gradient(var(--card), var(--card)) padding-box,
+        linear-gradient(90deg, #a855f7, #06b6d4, #a855f7) border-box;
+    }
+  }
+
+  /* Text gradient animation */
+  .text-gradient-animate {
+    background: linear-gradient(90deg, #a855f7, #06b6d4, #a855f7, #06b6d4);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 5s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Tilt effect on hover */
+  .hover-tilt {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  .hover-tilt:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(5deg) scale(1.02);
+  }
+
+  /* Adding Christmas-specific animations and effects */
+
+  /* Christmas lights animation */
+  .christmas-lights {
+    animation: christmasLights 2s ease-in-out infinite;
+  }
+
+  @keyframes christmasLights {
+    0%,
+    100% {
+      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 20px rgba(22, 163, 74, 0.3);
+    }
+    25% {
+      box-shadow: 0 0 15px rgba(22, 163, 74, 0.5), 0 0 25px rgba(220, 38, 38, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.5), 0 0 30px rgba(220, 38, 38, 0.3);
+    }
+    75% {
+      box-shadow: 0 0 15px rgba(220, 38, 38, 0.5), 0 0 25px rgba(234, 179, 8, 0.3);
+    }
+  }
+
+  /* Candy cane stripe effect */
+  .candy-cane-border {
+    background: repeating-linear-gradient(45deg, #dc2626, #dc2626 10px, #ffffff 10px, #ffffff 20px);
+    background-size: 200% 200%;
+    animation: candyCaneMove 3s linear infinite;
+  }
+
+  @keyframes candyCaneMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  /* Gold shimmer for Christmas theme */
+  .gold-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.3) 50%, transparent);
+    background-size: 200% 100%;
+    animation: goldShimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes goldShimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Christmas bell swing */
+  .bell-swing {
+    animation: bellSwing 2s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes bellSwing {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-15deg);
+    }
+  }
+
+  /* Sparkle effect for Christmas */
+  .christmas-sparkle {
+    position: relative;
+  }
+
+  .christmas-sparkle::before,
+  .christmas-sparkle::after {
+    content: "✨";
+    position: absolute;
+    animation: sparkle 2s ease-in-out infinite;
+    font-size: 1.5rem;
+  }
+
+  .christmas-sparkle::before {
+    top: -10px;
+    left: -10px;
+    animation-delay: 0s;
+  }
+
+  .christmas-sparkle::after {
+    bottom: -10px;
+    right: -10px;
+    animation-delay: 1s;
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Holly decoration effect */
+  .holly-decoration {
+    position: relative;
+  }
+
+  .holly-decoration::before {
+    content: "🎄";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Christmas glow for cards */
+  .christmas-glow {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3), 0 0 40px rgba(22, 163, 74, 0.2), 0 0 60px rgba(234, 179, 8, 0.1);
+    animation: christmasGlowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes christmasGlowPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.3), 0 0 40px rgba(22, 163, 74, 0.2), 0 0 60px rgba(234, 179, 8, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(220, 38, 38, 0.5), 0 0 50px rgba(22, 163, 74, 0.3), 0 0 70px rgba(234, 179, 8, 0.2);
+    }
+  }
+
+  /* Festive gradient for Christmas */
+  .festive-gradient {
+    background: linear-gradient(135deg, #dc2626, #16a34a, #eab308, #dc2626);
+    background-size: 400% 400%;
+    animation: festiveGradient 5s ease infinite;
+  }
+
+  @keyframes festiveGradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
