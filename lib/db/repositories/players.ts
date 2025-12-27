@@ -13,35 +13,70 @@ export interface Player {
 export async function getAllPlayers(
   orderBy: string = 'Date',
   page: number = 1,
-  pageSize: number = 10
+  pageSize: number = 10,
+  search: string | null
 ): Promise<Player[]> {
   const offset = (page - 1) * pageSize;
   const db = await getDatabase();
-  let query = `SELECT * FROM players where status='active' ORDER BY created_at LIMIT ${pageSize} OFFSET ${offset}`;
+
+  let query = `
+  SELECT *
+  FROM players
+  WHERE status = 'active'
+`;
+
+  if (search) {
+    query += `
+    AND (
+      username LIKE '%${search}%'
+      OR ign LIKE '%${search}%'
+      OR discord_username LIKE '%${search}%'
+    )
+  `;
+  }
+
+  query += `
+  ORDER BY created_at DESC
+  LIMIT ${pageSize} OFFSET ${offset}
+`;
+
   if (orderBy?.toLowerCase() === 'score') {
-    query = `SELECT 
-      p.*,
-      COALESCE(fp.total_points, 0) AS total_points
-    FROM players p
-    LEFT JOIN (
-      SELECT 
-        s.player_id, 
-        SUM(s.points) AS total_points
-      FROM scores s
-      WHERE s.round = 'qualification'
-      GROUP BY s.player_id
-    ) fp ON fp.player_id = p.id
-    WHERE p.status = 'active'
-    ORDER BY COALESCE(fp.total_points, 0) DESC LIMIT ${pageSize} OFFSET ${offset}`;
+    query = `SELECT p.*, COALESCE(fp.total_points, 0) AS total_points
+  FROM players p
+  LEFT JOIN (
+    SELECT s.player_id, SUM(s.points) AS total_points
+    FROM scores s
+    WHERE s.round = 'qualification'
+    GROUP BY s.player_id
+  ) fp ON fp.player_id = p.id
+  WHERE p.status = 'active'
+  ${
+    search
+      ? `AND (p.username LIKE '%${search}%' OR p.ign LIKE '%${search}%' OR p.discord_username LIKE '%${search}%')`
+      : ''
+  }
+  ORDER BY COALESCE(fp.total_points, 0) DESC
+  LIMIT ${pageSize} OFFSET ${offset}`;
   }
 
   const rows = await db.query(query);
   return rows.map(mapPlayerFromDb);
 }
 
-export async function getActivePlayerCount(): Promise<number> {
+export async function getActivePlayerCount(
+  search?: string | null
+): Promise<number> {
   const db = await getDatabase();
-  const countQuery = `SELECT COUNT(*) AS total FROM players WHERE status = 'active';`;
+  let countQuery = `SELECT COUNT(*) AS total FROM players WHERE status = 'active'`;
+  if (search) {
+    countQuery += `
+    AND (
+      username LIKE '%${search}%'
+      OR ign LIKE '%${search}%'
+      OR discord_username LIKE '%${search}%'
+    )
+  `;
+  }
   const rows = await db.query(countQuery);
   return rows?.[0].total || 0;
 }

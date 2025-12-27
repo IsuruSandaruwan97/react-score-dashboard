@@ -9,10 +9,11 @@ export async function GET(request?: Request) {
   try {
     const { searchParams } = new URL(request?.url || '');
     const totalPlayers = searchParams.get('total') || null;
+    const search = searchParams.get('search');
     const round = searchParams.get('round') || 'qualification';
     if (totalPlayers) {
       const total =
-        round !== 'qualification' ? 10 : await getActivePlayerCount();
+        round !== 'qualification' ? 10 : await getActivePlayerCount(search);
       return NextResponse.json({ total });
     }
 
@@ -22,7 +23,7 @@ export async function GET(request?: Request) {
 
     const players =
       round === 'qualification'
-        ? await getAllPlayers(soryBy, page, pageSize)
+        ? await getAllPlayers(soryBy, page, pageSize, search)
         : await getAllQualifiedPlayers();
     return NextResponse.json({ players });
   } catch (error) {

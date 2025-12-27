@@ -78,6 +78,7 @@ export default function ScoreEntryContent() {
     new Map()
   );
   const [searchQuery, setSearchQuery] = useState('');
+
   const [currentPage, setCurrentPage] = useState(1);
   const [finalsEnabled, setFinalsEnabled] = useState(false);
   const [qualificationLocked, setQualificationLocked] = useState(false);
@@ -176,17 +177,109 @@ export default function ScoreEntryContent() {
     loadData();
   }, [round, sortBy, currentPage, itemsPerPage]);
 
-  const filteredPlayers = players.filter((player) =>
-    searchQuery
-      ? player.minecraftUsername
-          ?.toLowerCase()
-          .includes(searchQuery.toLowerCase()) ||
-        player.username?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        player.discordUsername
-          ?.toLowerCase()
-          .includes(searchQuery.toLowerCase())
-      : true
-  );
+  function useDebounce<T>(value: T, delay = 300) {
+    const [debounced, setDebounced] = useState(value);
+
+    useEffect(() => {
+      const id = setTimeout(() => setDebounced(value), delay);
+      return () => clearTimeout(id);
+    }, [value, delay]);
+
+    return debounced;
+  }
+
+  const debouncedSearch = useDebounce(searchQuery, 300);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    const loadData = async () => {
+      try {
+        const [playersRes, judgesRes, criteriaRes, scoresRes, totalCountRes] =
+          await Promise.all([
+            fetch(
+              `/api/data/players?round=${round}&sort=${sortBy}&page=${currentPage}&pageSize=${itemsPerPage}&search=${encodeURIComponent(
+                debouncedSearch
+              )}`,
+              { signal }
+            ),
+            fetch('/api/data/judges', { signal }),
+            fetch(`/api/data/criteria?type=${round}`, { signal }),
+            fetch('/api/data/scores', { signal }),
+            fetch(
+              `/api/data/players?round=${round}&total=true&search=${encodeURIComponent(
+                debouncedSearch
+              )}`,
+              {
+                signal,
+              }
+            ),
+          ]);
+
+        if (signal.aborted) return;
+
+        const [playersData, judgesData, criteriaData, scoresData, totalCount] =
+          await Promise.all([
+            playersRes.json(),
+            judgesRes.json(),
+            criteriaRes.json(),
+            scoresRes.json(),
+            totalCountRes.json(),
+          ]);
+
+        setTotalPlayers(totalCount?.total || 0);
+        setPlayers(playersData.players);
+
+        const scoresMap = new Map<string, PlayerScore>();
+        const roundScores = scoresData[round] || [];
+
+        playersData.players.forEach((player: Player) => {
+          const playerData = roundScores.find(
+            (ps: any) => ps.playerId === player.id
+          );
+          const judgeScoresMap = new Map<string, JudgeScore>();
+
+          judgesData.judges.forEach((judge: Judge) => {
+            const scores: Record<string, number | null> = {};
+
+            criteriaData.criteria
+              .filter((c: any) => c.active)
+              .forEach((criterion: Criterion) => {
+                scores[criterion.id] = null;
+              });
+
+            if (playerData && playerData.scores[judge.id]) {
+              Object.entries(playerData.scores[judge.id]).forEach(
+                ([criterionId, score]) => {
+                  scores[criterionId] = score as number;
+                }
+              );
+            }
+
+            judgeScoresMap.set(judge.id, { judgeId: judge.id, scores });
+          });
+
+          scoresMap.set(player.id, {
+            playerId: player.id,
+            judgeScores: judgeScoresMap,
+            isExpanded: false,
+            isSaving: false,
+            saveStatus: 'idle',
+          });
+        });
+
+        setPlayerScores(scoresMap);
+      } catch (error: any) {
+        if (error?.name === 'AbortError') return;
+        console.error('[v0] Error loading data:', error);
+      }
+    };
+
+    loadData();
+
+    return () => controller.abort();
+  }, [debouncedSearch, round, sortBy, currentPage, itemsPerPage]);
 
   // Pagination
   const totalPages = Math.ceil(totalPlayers / itemsPerPage);
@@ -374,8 +467,8 @@ export default function ScoreEntryContent() {
                 placeholder="Search by Minecraft username, Discord username, or Player ID..."
                 value={searchQuery}
                 onChange={(e) => {
-                  setSearchQuery(e.target.value);
                   setCurrentPage(1);
+                  setSearchQuery(e.target.value);
                 }}
                 className="pl-9 bg-slate-950/50 border-slate-700 text-white"
               />
@@ -402,7 +495,7 @@ export default function ScoreEntryContent() {
 
       {/* Score Entry Cards */}
       <div className="space-y-3">
-        {filteredPlayers?.map((player) => {
+        {players?.map((player) => {
           const scoreData = playerScores.get(player.id);
           if (!scoreData) return null;
 
@@ -610,6 +703,7 @@ export default function ScoreEntryContent() {
       </div>
 
       {/* Pagination */}
+
       {round === 'qualification' && totalPlayers > itemsPerPage && (
         <Card className="bg-slate-900/50 border-purple-500/20">
           <CardContent className="pt-6">
