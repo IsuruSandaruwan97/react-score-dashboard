@@ -38,12 +38,13 @@ export async function getWinners(): Promise<PlayerResult[]> {
     FROM scores s
     JOIN players p ON p.id = s.player_id
     WHERE p.status = "active"
-    AND s.round= "final"
+    AND s.round= "finals"
     GROUP BY s.player_id
     ORDER BY total_points DESC
     LIMIT 10
     `
   );
+
   return rows.map(mapWinnersFromDB);
 }
 
