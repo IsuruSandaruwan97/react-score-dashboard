@@ -161,23 +161,28 @@ export default async function HomePage() {
                       <h3 className="text-xl font-semibold mb-4">
                         Top 10 Players
                       </h3>
-                      <div className="space-y-2">
+                      <div className="grid grid-cols-2 gap-4">
                         {remainingPlayers?.map((player: any, index: number) => (
                           <Card
                             key={player.playerId}
-                            className="p-4 flex items-center justify-between hover:bg-accent/50 transition-colors"
+                            className="
+                              p-4 flex items-center justify-between
+                              hover:bg-accent/50 transition-colors
+                              last:col-span-2
+                            "
                           >
+                            <Badge
+                              variant="outline"
+                              className="text-lg w-12 justify-center"
+                            >
+                              {index + 4}
+                            </Badge>
                             <div className="flex items-center gap-4">
-                              <Badge
-                                variant="outline"
-                                className="text-lg w-12 justify-center"
-                              >
-                                {index + 4}
-                              </Badge>
                               <span className="font-semibold text-lg">
                                 {player.username}
                               </span>
                             </div>
+
                             <span className="text-lg font-bold text-muted-foreground">
                               {player.totalScore} pts
                             </span>
